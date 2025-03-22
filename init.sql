@@ -1,0 +1,15 @@
+-- init.sql
+
+CREATE TABLE IF NOT EXISTS users (
+    id SERIAL PRIMARY KEY,
+    name VARCHAR(100) NOT NULL,
+    email VARCHAR(100) UNIQUE NOT NULL
+);
+
+
+CREATE TABLE IF NOT EXISTS orders (
+    id SERIAL PRIMARY KEY,
+    user_id INTEGER REFERENCES users(id),
+    product VARCHAR(100) NOT NULL,
+    amount INTEGER NOT NULL
+);
