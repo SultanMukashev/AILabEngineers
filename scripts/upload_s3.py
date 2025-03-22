@@ -1,11 +1,15 @@
 import boto3
 import os
+from dotenv import load_dotenv
 
-MINIO_ENDPOINT = "http://localhost:9000"
-ACCESS_KEY = "minioaccesskey"
-SECRET_KEY = "miniosecretkey"
-BUCKET_NAME = "nk-mybucket"
-FILES_DIR = "s3data"
+# load environment variables from .env file
+load_dotenv()
+
+MINIO_ENDPOINT = os.getenv("MINIO_ENDPOINT")
+ACCESS_KEY = os.getenv("MINIO_ROOT_USER")
+SECRET_KEY = os.getenv("MINIO_ROOT_PASSWORD")
+BUCKET_NAME = os.getenv("BUCKET_NAME")
+FILES_DIR = os.getenv("FILES_DIR")
 
 s3_client = boto3.client(
     "s3",

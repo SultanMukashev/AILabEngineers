@@ -1,12 +1,18 @@
 import os
 import csv
 import psycopg2
+from dotenv import load_dotenv
 
-DB_HOST = os.getenv("POSTGRES_HOST", "localhost")
-DB_NAME = os.getenv("POSTGRES_DB", "mydatabase")
-DB_USER = os.getenv("POSTGRES_USER", "user")
-DB_PASS = os.getenv("POSTGRES_PASSWORD", "password")
-DB_PORT = os.getenv("POSTGRES_PORT", 5432)
+load_dotenv() # load variables from .env file
+
+DB_HOST = os.getenv("POSTGRES_HOST")
+DB_NAME = os.getenv("POSTGRES_DB")
+DB_USER = os.getenv("POSTGRES_USER")
+DB_PASS = os.getenv("POSTGRES_PASSWORD")
+DB_PORT = os.getenv("POSTGRES_PORT")
+
+CSV_USERS = os.getenv("CSV_USERS")
+CSV_ORDERS = os.getenv("CSV_ORDERS")
 
 def load_csv_to_db(csv_file_path, table_name):
     conn = psycopg2.connect(
@@ -19,19 +25,15 @@ def load_csv_to_db(csv_file_path, table_name):
     cursor = conn.cursor()
     
     with open(csv_file_path, 'r', encoding='utf-8') as file:
-        reader = csv.reader(file)
-        headers = next(reader)
-        placeholders = ','.join(['%s'] * len(headers))
-        sql = f"INSERT INTO {table_name} VALUES ({placeholders})"
-        
-        for row in reader:
-            cursor.execute(sql, row)
-    
+        # COPY command for quick CSV import
+        sql = f"COPY {table_name} FROM STDIN WITH CSV HEADER DELIMITER ','"
+        cursor.copy_expert(sql, file)
+
     conn.commit()
     cursor.close()
     conn.close()
     print(f"Data from {csv_file_path} has been successfully uploaded to the {table_name} table.")
 
 if __name__ == '__main__':
-    load_csv_to_db('../data/users.csv', 'users')
-    load_csv_to_db('../data/orders.csv', 'orders')
+    load_csv_to_db(CSV_USERS, 'users')
+    load_csv_to_db(CSV_ORDERS, 'orders')
