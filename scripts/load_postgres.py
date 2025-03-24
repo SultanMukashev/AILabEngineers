@@ -1,6 +1,7 @@
 import os
 import csv
 import psycopg2
+from psycopg2 import sql
 from dotenv import load_dotenv
 
 load_dotenv() # load variables from .env file
@@ -26,9 +27,9 @@ def load_csv_to_db(csv_file_path, table_name):
     
     with open(csv_file_path, 'r', encoding='utf-8') as file:
         # COPY command for quick CSV import
-        sql = f"COPY {table_name} FROM STDIN WITH CSV HEADER DELIMITER ','"
-        cursor.copy_expert(sql, file)
-
+        copy_sql = sql.SQL("COPY {} FROM STDIN WITH CSV HEADER DELIMITER ','").format(sql.Identifier(table_name))
+        cursor.copy_expert(copy_sql.as_string(conn), file)
+        
     conn.commit()
     cursor.close()
     conn.close()
