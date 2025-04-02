@@ -17,13 +17,13 @@ uv pip install
 
 rename .env.example to .env and configure
 
-## 2.2 run docker in background
+## 2.3 run docker in background
 
 ```sh
 docker compose up -d
 ```
 
-## 2.3 run scripts
+## 2.4 run scripts
 
 ```
 uv run scripts/upload_s3.py && uv run scripts/load_postgres.py
@@ -31,7 +31,7 @@ uv run scripts/upload_s3.py && uv run scripts/load_postgres.py
 
 # 3. test
 
-## 3.1 test postgresql using
+## 3.1 postgresql
 
 change command with respect to .env file
 ```sh
@@ -39,23 +39,22 @@ psql -d database -h localhost -p 5432 -U admin -c "select * from users;"
 ```
 
 expected output:
-
- id |     name      |           email
-----+---------------+---------------------------
-  1 | John Doe      | john.doe@example.com
-  2 | Jane Smith    | jane.smith@example.com
-  3 | Michael Brown | michael.brown@example.com
-  4 | Beket nur     | beket@gmail.com
-  5 | Aisara Nur    | aisara@gmail.com
+| id  | name           | email                    |
+|-----|----------------|--------------------------|
+| 1   | John Doe       | john.doe@example.com     |
+| 2   | Jane Smith     | jane.smith@example.com   |
+| 3   | Michael Brown  | michael.brown@example.com|
+| 4   | Beket nur      | beket@gmail.com          |
+| 5   | Aisara Nur     | aisara@gmail.com         |
 (5 rows)
 
-## 3.2 test pgadmin
+## 3.2 pgadmin
 
 1. open http://localhost:5050 in your browser
 2. use creditionals from .env file
 3. connect to database, hostname=postgres
 
-## 3.3 test minio
+## 3.3 minio
 
 1. open http://localhost:9001 in your browser
 2. use creditionals from .env file
