@@ -87,29 +87,29 @@ docker-compose up -d
 docker ps
 ```
 
-![](..\screenshots\img.png)
+![](lab1/screenshots/img.png)
 
 ## 4. Автоматизация работы с базой данных
 ### 4.1. Загрузка CSV-файла в PostgreSQL:
 Написала скрипт load_postgres.py, который считывает CSV-файлы из папки data и загружает их в базу данных PostgreSql.
 
-![](..\screenshots\img_4.png)
+![](lab1/screenshots/img_4.png)
 
 ### 4.2. pgAdmin
 #### 4.2.1 Проверим правильно ли сработал load_to_postgres.py
-![](..\screenshots\img_2.png)
-![](..\screenshots\img_3.png)
+![](lab1/screenshots/img_2.png)
+![](lab1/screenshots/img_3.png)
 Так как все данные из наших файлов сохранились переходим к следующему шагу
 #### 4.2.2 Проверим pgAdmin
 Заходим в pgAdmin по ссылке http://localhost:5050. Проверим наши таблицы на создание и заполнение.
-![](..\screenshots\img_1.png)
+![](lab1/screenshots/img_1.png)
 
 ### 4.3. MinIO
 Запускаем наш код upload_s3.py
-![](..\screenshots\img_5.png)
+![](lab1/screenshots/img_5.png)
 
 Заходим в MInIO по ссылке http://localhost:9000. 
-![](..\screenshots\img_6.png)
+![](lab1/screenshots/img_6.png)
 
 ## 5. Итоги
 - В результате была развернута интегрированная среда с использованием PostgreSQL, MinIO и pgAdmin, настроенная с помощью Docker Compose. 
