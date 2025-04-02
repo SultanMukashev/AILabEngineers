@@ -14,11 +14,7 @@
 
 ### 1.2 Источники
 
-Для развертывания использовался Docker Compose. Образы были взяты из официальных репозиториев:
-
-- Docker Hub: [https://hub.docker.com/](https://hub.docker.com/)
-- PostgreSQL на Docker Hub: [https://hub.docker.com/_/postgres](https://hub.docker.com/_/postgres)
-- pgAdmin на Docker Hub: [https://hub.docker.com/r/dpage/pgadmin4](https://hub.docker.com/r/dpage/pgadmin4)
+Для развертывания использовался Docker Compose. Образы были взяты из официальных репозиториев
 
 ## 2. Разработка инфраструктуры
 
