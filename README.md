@@ -1,51 +1,62 @@
-# Всем добро пожаловать в репозиторий с заданиями по направлению MLOps в AI Lab SDU!
+# 1. technologies
 
-### Ссылки:
-[Task 1](./lab1/LabTask.md) Till 27 march 2025
+- docker compose
+- postgresql
+- minio
+- pgadmin
+- uv
 
-### Как тут работать?
+# 2. how to run
+## 2.1 install dependencies to run scripts
 
-- #### Склонируйте эту репу 
-    ```
-    git clone https://github.com/SultanMukashev/AILabEngineers.git
-    ```
-- #### Локально у себя откройте новую ветку(branch)
-    ```
-    git checkout -b 'your-unique-branch-name'
-    ```
-- #### Когда захотите сделать изменения используйте:
+```sh
+uv pip install
+```
 
-    ##### Добавление изменений:
-        git add path-to-your-file
-    Examples:
-    - Adding all changes in your working directory in terminal
-        
-        ```
-        git add .
-        ```
-        - Adding exact files
-        ```
-        git add file1 file2 dir1/file3
-        ```
-     ##### Коммиты для сохранения состояния для будущих откатов, чем чаще при мелких но важных изменениях, тем лучше.
+## 2.2 environment
 
-        git commit -m 'your commit message'
+rename .env.example to .env and configure
 
-    Examples:
-    ```
-    git commit -m 'fix: changed configuration file
-    ```
+## 2.2 run docker in background
 
-    ```
-    git commit -m 'feat: added new function for parsing'
-    ```
+```sh
+docker compose up -d
+```
 
-    ##### Пуш изменений в свой бранч на удаленный гитхаб репо чтобы другие видели
+## 2.3 run scripts
 
-    ```
-    git push origin your-unique-branch-name 
-    ```
+```
+uv run scripts/upload_s3.py && uv run scripts/load_postgres.py
+```
 
-  #### Так же можно сделать это все просто используя плагины для гита в вашем IDE
-- #### Если будут супер большие файлы или папки, добавляйте пути к ним в .gitignore файл. Например pgdata где хранятся данные с постгреса.
+# 3. test
 
+## 3.1 test postgresql using
+
+change command with respect to .env file
+```sh
+psql -d database -h localhost -p 5432 -U admin -c "select * from users;"
+```
+
+expected output:
+
+ id |     name      |           email
+----+---------------+---------------------------
+  1 | John Doe      | john.doe@example.com
+  2 | Jane Smith    | jane.smith@example.com
+  3 | Michael Brown | michael.brown@example.com
+  4 | Beket nur     | beket@gmail.com
+  5 | Aisara Nur    | aisara@gmail.com
+(5 rows)
+
+## 3.2 test pgadmin
+
+1. open http://localhost:5050 in your browser
+2. use creditionals from .env file
+3. connect to database
+
+## 3.3 test minio
+
+1. open http://localhost:9001 in your browser
+2. use creditionals from .env file
+3. check bucket 'bucket' if contains 'order.back.csv'
