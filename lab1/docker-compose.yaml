@@ -1,0 +1,32 @@
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres
+    env_file:
+      - .env
+    volumes:
+      - ./pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5433:5432"
+
+  minio:
+    image: minio/minio
+    container_name: minio
+    env_file:
+      - .env
+    command: server /data --console-address ":9001"
+    volumes:
+      - ./s3data:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    env_file:
+      - .env
+    ports:
+      - "8080:80"
