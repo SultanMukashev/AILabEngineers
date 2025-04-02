@@ -53,7 +53,7 @@ expected output:
 
 1. open http://localhost:5050 in your browser
 2. use creditionals from .env file
-3. connect to database
+3. connect to database, hostname=postgres
 
 ## 3.3 test minio
 
