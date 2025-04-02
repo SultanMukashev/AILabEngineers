@@ -39,6 +39,19 @@ services:
     networks:
       - mlops_network
 
+  pgadmin:
+    image: dpage/pgadmin4
+    restart: always
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@example.com
+      PGADMIN_DEFAULT_PASSWORD: admin
+    networks:
+      - mlops_network
+    ports:
+      - "5050:80"  # Порт, по которому будет доступен pgAdmin
+    depends_on:
+      - postgres
+
 volumes:
   pgdata:
   minio-data:
