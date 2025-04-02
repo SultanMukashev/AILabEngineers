@@ -30,17 +30,15 @@ def load_csv_to_db(csv_file_path, table_name):
         )
         cursor = conn.cursor()
 
-        # Verify table exists
         cursor.execute(f"SELECT EXISTS(SELECT 1 FROM information_schema.tables WHERE table_name='{table_name}')")
         if not cursor.fetchone()[0]:
             raise ValueError(f"Table {table_name} doesn't exist")
 
         with open(csv_path, "r", encoding="utf-8") as file:
-            # Specify columns based on table
             if table_name == "users":
-                columns = "(name, email)"  # Skip id since it's SERIAL
+                columns = "(name, email)" 
             elif table_name == "orders":
-                columns = "(user_id, order_date, amount)"  # Skip id
+                columns = "(user_id, order_date, amount)"  
             else:
                 columns = ""
 
