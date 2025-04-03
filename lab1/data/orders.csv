@@ -1,0 +1,8 @@
+order_id,user_id,product_name,quantity,price,date
+101,1,Wireless Headphones,1,99.99,2023-01-10
+102,2,Smartphone,2,499.99,2023-02-18
+103,3,Laptop,1,899.99,2023-03-22
+104,4,Tablet,3,249.99,2023-04-15
+105,5,Smartwatch,1,199.99,2023-05-07
+106,1,Wireless Mouse,2,29.99,2023-01-12
+107,2,Charger,1,19.99,2023-02-20
