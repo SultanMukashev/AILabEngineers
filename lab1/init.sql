@@ -10,6 +10,6 @@ CREATE TABLE IF NOT EXISTS orders (
     user_id INT REFERENCES users(id),
     product_name VARCHAR(100),
     quantity INT,
-    amount DECIMAL(10, 2),
+    order_price DECIMAL(10, 2),
     order_date DATE
 );

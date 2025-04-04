@@ -1,2 +1,4 @@
 .env
 venv
+pgdata
+s3data

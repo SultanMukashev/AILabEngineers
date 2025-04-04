@@ -14,12 +14,11 @@ load_dotenv(dotenv_path='.env')
 #     "port": os.getenv("POSTGRES_PORT", 5432),
 # }
 
-
-DB_HOST = os.getenv('POSTGRES_HOST',"postgres")
+DB_HOST = os.getenv('POSTGRES_HOST')
 DB_PORT = os.getenv('POSTGRES_PORT',5432)
-DB_NAME = os.getenv('POSTGRES_DB',"postgres")
-DB_USER = os.getenv('POSTGRES_USER',"postgres")
-DB_PASSWORD = os.getenv('POSTGRES_PASSWORD',"postgres")
+DB_NAME = os.getenv('POSTGRES_DB')
+DB_USER = os.getenv('POSTGRES_USER')
+DB_PASSWORD = os.getenv('POSTGRES_PASSWORD')
 
 
 # cur = conn.cursor()
@@ -28,7 +27,7 @@ def get_connection():
     # conn = psycopg2.connect(**DB_CONFIG)
     # conn.set_client_encoding('utf-8')
     conn = psycopg2.connect(
-        host=DB_HOST,
+        host="localhost", 
         port=DB_PORT,
         dbname=DB_NAME,
         user=DB_USER,
@@ -77,27 +76,17 @@ def load_csv_to_db(csv_file_path, table_name):
         conn.commit()
         print(f"✅ Loaded {csv_file_path} into table {table_name}.")
 
-    # except Exception as e:
-        # print(f"❌ Error: {e}")
-        # print(csv_file_path )
+    except Exception as e:
+        print(f"❌ Error: {e}")
+        print(csv_file_path )
     finally:
         if cursor: cursor.close()
         if conn: conn.close()
 
 if __name__ == '__main__':
-    # load_csv_to_db('users.csv', 'users')
-    # load_csv_to_db('orders.csv', 'orders')
-    # SCRIPT_DIR = os.path.dirname(os.path.abspath(__file__))  # current script dir
-    # print(SCRIPT_DIR)
-    # use it to construct full path
-    # p = os.path.join(SCRIPT_DIR, '\\data\\users.csv')
-    
-    p = "../data/users.csv"
-    print(p)
-    print(repr(DB_HOST),repr(DB_USER),repr(DB_PORT),repr(DB_PASSWORD),repr(DB_NAME),)
-    load_csv_to_db(p, 'users')
-    # print(DB_CONFIG)
+    # p = "../data/users.csv"
+    # print(p)
+    # load_csv_to_db(p, 'users')  
 
-    # load_csv_to_db(os.path.join(SCRIPT_DIR, '../data/orders.csv'), 'orders')
-
-    # print(DB_CONFIG)
+    load_csv_to_db("./data/users.csv", 'users')
+    load_csv_to_db("./data/orders.csv", 'orders')
