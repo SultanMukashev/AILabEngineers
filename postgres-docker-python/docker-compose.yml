@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  db:
+    image: postgres:14
+    environment:
+      POSTGRES_USER: dataminer0
+      POSTGRES_PASSWORD: dataminer01
+      POSTGRES_DB: mydatabase
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+
+  app:
+    build: ./app
+    depends_on:
+      - db
+    environment:
+      DB_HOST: localhost
+      DB_NAME: mydatabase
+      DB_USER: dataminer0
+      DB_PASS: dataminer01
+
+volumes:
+  pgdata:
