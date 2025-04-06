@@ -108,8 +108,16 @@ def main():
             # read csv into pandas dataframe
             data_buffer = io.BytesIO(file_content)
             dtype_options = {'zip_code': str} if table_name == 'accounts' else None
-            parse_dates_options = ['join_date'] if table_name == 'accounts' else ['transaction_date'] if table_name == 'transactions' else None
+            # set parse_dates options based on table name
+            if table_name == 'accounts':
+                parse_dates_options = [8]
+            elif table_name == 'transactions':
+                parse_dates_options = [1]
+            else:
+                parse_dates_options = None 
+                
             df = pd.read_csv(data_buffer, dtype=dtype_options, parse_dates=parse_dates_options)
+            df.columns = df.columns.str.strip() # strip whitespace from column names
 
             if df.empty:
                 print(f"Warning: File '{s3_object_key}' is empty. Skipping load.")
@@ -122,8 +130,11 @@ def main():
             buffer.seek(0)
 
             with conn.cursor() as cur:
+
                 table_columns = df.columns
                 safe_columns = [f'"{col}"' for col in table_columns]
+                cur.execute(f"TRUNCATE TABLE {table_name};")
+                print(f"Table '{table_name}' truncated.")
                 # use COPY command to load data
                 # E'\\t' is the delimiter, '\\N' is the null representation, and E'\\b' is the quote character
                 copy_sql = f"""
