@@ -2,6 +2,7 @@ services:
   postgres:
     image: postgres:13
     container_name: postgres
+    env_file: ../.env
     environment:
       POSTGRES_USER: ${POSTGRES_USER}
       POSTGRES_PASSWORD: ${POSTGRES_PASSWORD}
@@ -15,6 +16,7 @@ services:
   minio:
     image: minio/minio
     container_name: minio
+    env_file: ../.env
     environment:
       MINIO_ROOT_USER: ${MINIO_ROOT_USER}
       MINIO_ROOT_PASSWORD: ${MINIO_ROOT_PASSWORD}
@@ -29,6 +31,7 @@ services:
   pgadmin:
     image: dpage/pgadmin4
     container_name: pgadmin
+    env_file: ../.env
     environment:
       PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL}
       PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD}
