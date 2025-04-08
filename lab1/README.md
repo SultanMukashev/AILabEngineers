@@ -29,8 +29,8 @@ Will automatically build CMake and run the scripts
 
 after running the scripts and opening localhost 80 PGAdmin, the database is successfully set and after running basic script the result is following
 
-![ Postgres result ](/images/postgres_table.png)
+![ Postgres result ](images/postgres_table.png)
 
 then, comming to Minio and opening localhost 9001 the result is following
 
-![ Minio result ](/images/minio_bucket.png)
+![ Minio result ](images/minio_bucket.png)
