@@ -88,7 +88,7 @@ async def main():
     access_key = os.getenv('MINIO_ROOT_USER')
     secret_key = os.getenv('MINIO_ROOT_PASSWORD')
     endpoint_url = os.getenv('MINIO_ENDPOINT')
-    bucket_name = os.getenv('BUCKET_NAME')
+    bucket_name = os.getenv('MINIO_BUCKET')
 
     if not all([access_key, secret_key, endpoint_url, bucket_name]):
          print("CRITICAL Error: Missing S3 configuration in .env (MINIO_ROOT_USER, MINIO_ROOT_PASSWORD, MINIO_ENDPOINT, BUCKET_NAME).", file=sys.stderr)

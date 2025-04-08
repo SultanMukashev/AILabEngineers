@@ -1,0 +1,34 @@
+version: '3.8'
+
+services:
+  postgres:
+    image: postgres:13
+    container_name: postgres_main
+    env_file: .env
+    volumes:
+      - postgres_data:/var/lib/postgresql/data 
+      - ./initdb:/docker-entrypoint-initdb.d     
+    ports:
+      - "5432:5432"
+
+  minio:
+    image: minio/minio
+    container_name: minio_main
+    env_file: .env
+    command: server /data --console-address ":9001"
+    volumes:
+      - minio_data:/data 
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+      
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin_main
+    env_file: .env
+    ports:
+      - "8080:80"
+
+volumes: 
+  postgres_data:
+  minio_data:
