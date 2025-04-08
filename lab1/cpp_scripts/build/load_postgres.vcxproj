@@ -1,0 +1,398 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{E67CB3A6-A05E-34E9-B794-24238405133D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <VcpkgEnabled>false</VcpkgEnabled>
+    <WindowsTargetPlatformVersion>10.0.22621.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>load_postgres</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="do_not_import_user.props" Condition="exists('do_not_import_user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">load_postgres.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">load_postgres</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">load_postgres.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">load_postgres</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">load_postgres.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">load_postgres</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">load_postgres.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">load_postgres</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Dev/dependencies_cpp/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;PQXX_SHARED;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;PQXX_SHARED;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Dev/dependencies_cpp/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/Debug/load_postgres.exe -installedDir C:/Dev/dependencies_cpp/vcpkg/installed/x64-windows/debug/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\debug\lib\pqxx.lib;wsock32.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/Debug/load_postgres.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/Debug/load_postgres.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Dev/dependencies_cpp/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PQXX_SHARED;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PQXX_SHARED;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Dev/dependencies_cpp/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/Release/load_postgres.exe -installedDir C:/Dev/dependencies_cpp/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\lib\pqxx.lib;wsock32.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/Release/load_postgres.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/Release/load_postgres.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Dev/dependencies_cpp/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PQXX_SHARED;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PQXX_SHARED;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Dev/dependencies_cpp/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/MinSizeRel/load_postgres.exe -installedDir C:/Dev/dependencies_cpp/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\lib\pqxx.lib;wsock32.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/MinSizeRel/load_postgres.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/MinSizeRel/load_postgres.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Dev/dependencies_cpp/vcpkg/installed/x64-windows/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <LanguageStandard>stdcpp20</LanguageStandard>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PQXX_SHARED;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;PQXX_SHARED;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <PostBuildEvent>
+      <Message></Message>
+      <Command>setlocal
+C:\Windows\System32\WindowsPowerShell\v1.0\powershell.exe -noprofile -executionpolicy Bypass -file C:/Dev/dependencies_cpp/vcpkg/scripts/buildsystems/msbuild/applocal.ps1 -targetBinary C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/RelWithDebInfo/load_postgres.exe -installedDir C:/Dev/dependencies_cpp/vcpkg/installed/x64-windows/bin -OutVariable out
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+    </PostBuildEvent>
+    <Link>
+      <AdditionalDependencies>C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\lib\pqxx.lib;wsock32.lib;ws2_32.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/RelWithDebInfo/load_postgres.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/RelWithDebInfo/load_postgres.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Dev/AILab/AILabEngineers/lab1/cpp_scripts -BC:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build --check-stamp-file C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeCCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeCXXCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeRCCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeSystem.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\postgresql\vcpkg-cmake-wrapper.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\zlib\vcpkg-cmake-wrapper.cmake;C:\Dev\dependencies_cpp\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPostgreSQL.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Dev/AILab/AILabEngineers/lab1/cpp_scripts -BC:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build --check-stamp-file C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeCCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeCXXCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeRCCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeSystem.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\postgresql\vcpkg-cmake-wrapper.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\zlib\vcpkg-cmake-wrapper.cmake;C:\Dev\dependencies_cpp\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPostgreSQL.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Dev/AILab/AILabEngineers/lab1/cpp_scripts -BC:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build --check-stamp-file C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeCCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeCXXCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeRCCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeSystem.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\postgresql\vcpkg-cmake-wrapper.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\zlib\vcpkg-cmake-wrapper.cmake;C:\Dev\dependencies_cpp\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPostgreSQL.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Dev/AILab/AILabEngineers/lab1/cpp_scripts -BC:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build --check-stamp-file C:/Dev/AILab/AILabEngineers/lab1/cpp_scripts/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeCCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeCXXCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeRCCompiler.cmake;C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\4.0.0\CMakeSystem.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-auth\aws-c-auth-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-cal\aws-c-cal-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-common\aws-c-common-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-compression\aws-c-compression-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-event-stream\aws-c-event-stream-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-http\aws-c-http-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-io\aws-c-io-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-mqtt\aws-c-mqtt-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-s3\aws-c-s3-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-c-sdkutils\aws-c-sdkutils-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-checksums\aws-checksums-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-core\aws-cpp-sdk-core-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-cpp-sdk-s3\aws-cpp-sdk-s3-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\aws-crt-cpp\aws-crt-cpp-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-config-version.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-config.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets-debug.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets-release.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\libpqxx\libpqxx-targets.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\postgresql\vcpkg-cmake-wrapper.cmake;C:\Dev\dependencies_cpp\vcpkg\installed\x64-windows\share\zlib\vcpkg-cmake-wrapper.cmake;C:\Dev\dependencies_cpp\vcpkg\scripts\buildsystems\vcpkg.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCXXInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeCommonLanguageInclude.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeDependentOption.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeFindDependencyMacro.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeGenericSystem.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeInitializeConfigs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeLanguageInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeRCInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CMakeSystemSpecificInitialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckCSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckIncludeFile.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\CheckLibraryExists.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\CMakeCommonCompilerMacros.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Compiler\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageHandleStandardArgs.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPackageMessage.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindPostgreSQL.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindThreads.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\FindZLIB.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCXXLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CMakeCommonLinkerInformation.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Internal\CheckSourceCompiles.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Linker\MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Linker\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-Initialize.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-C.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC-CXX.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows-MSVC.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\Windows.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\Platform\WindowsPaths.cmake;C:\Program Files\CMake\share\cmake-4.0\Modules\SelectLibraryConfigurations.cmake;%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\load_postgres.cpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Dev\AILab\AILabEngineers\lab1\cpp_scripts\build\ZERO_CHECK.vcxproj">
+      <Project>{E62D4C9F-6B6C-3267-9AFF-B002BD0F9799}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
