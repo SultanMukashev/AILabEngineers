@@ -106,14 +106,15 @@ async def main():
     except Exception:
          sys.exit(1)
 
-    source_dir = 'lab2/data'
-    files_to_upload = ['accounts.csv', 'products.csv', 'transactions.csv']
+    script_dir = os.path.dirname(os.path.abspath(__file__))
+    source_dir_abs = os.path.join(script_dir, 'data')
+    files_to_upload = ['kolesa_almaty_cleaned.csv']
 
     upload_tasks = []
     valid_files_to_upload = []
     print("\nPreparing upload tasks...")
     for filename in files_to_upload:
-        file_path = os.path.join(source_dir, filename)
+        file_path = os.path.join(source_dir_abs, filename)
         if os.path.exists(file_path):
             upload_tasks.append(s3_client.upload_file(file_path))
             valid_files_to_upload.append(filename)
