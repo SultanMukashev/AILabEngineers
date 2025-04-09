@@ -11,7 +11,6 @@ CREATE TABLE IF NOT EXISTS orders (
     amount NUMERIC
 );
 
--- Загрузка данных из CSV-файлов
 COPY users(namee, email)
 FROM '/data/users.csv'
 DELIMITER ','
