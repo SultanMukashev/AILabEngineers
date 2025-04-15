@@ -1,127 +1,159 @@
-Краткий конспект изученных технологий
+# Отчёт о выполнении задания: PostgreSQL + S3-хранилище в Docker Compose
 
-1. Docker
+Этот документ описывает шаги, выполненные для развёртывания среды с PostgreSQL, MinIO и pgAdmin с помощью Docker Compose, а также автоматизацию загрузки данных.
 
-Используется для контейнеризации, обеспечивая изолированную среду для приложений.
+---
 
-Основные команды:
+## 1. Подготовительный этап
 
-docker build -t my_image .
-docker run -d --name my_container my_image
-docker-compose up -d
+### 1.1 Анализ требований
 
-2. Docker Compose
+Для выполнения задачи необходимо развернуть следующие сервисы:
+- **PostgreSQL** – реляционная база данных с автоматической инициализацией через SQL-скрипты.
+- **MinIO** – S3-совместимое объектное хранилище.
+- **pgAdmin** – веб-интерфейс для управления PostgreSQL.
+- **Python-скрипты** – загрузка CSV-файлов в PostgreSQL и файлов в MinIO.
 
-Позволяет управлять многоконтейнерными приложениями с помощью docker-compose.yml.
+### 1.2 Выбор инструментов и источников
 
-Преимущества:
+Использовалось **Docker Compose** для управления многоконтейнерной средой. В качестве образов использовались официальные репозитории:
+- **PostgreSQL:** [https://hub.docker.com/_/postgres](https://hub.docker.com/_/postgres)
+- **pgAdmin:** [https://hub.docker.com/r/dpage/pgadmin4](https://hub.docker.com/r/dpage/pgadmin4)
+- **MinIO:** [https://hub.docker.com/r/minio/minio](https://hub.docker.com/r/minio/minio)
 
-Автоматизирует запуск зависимых сервисов (PgAdmin, PostgreSQL и MinIO).
+---
 
-Позволяет передавать переменные окружения через .env файл.
+## 2. Разработка инфраструктуры
 
-3. PostgreSQL
+### 2.1 Создание `.env` для хранения переменных окружения
 
-Популярная реляционная база данных с открытым исходным кодом.
+```ini
+# Конфигурация PostgreSQL
+POSTGRES_USER=smth
+POSTGRES_PASSWORD=smth
+POSTGRES_DB=smth
 
-Используемые библиотеки:
+# Конфигурация MinIO
+MINIO_ROOT_USER=smth
+MINIO_ROOT_PASSWORD=smth
 
-psycopg2 — взаимодействие с базой данных.
+# Конфигурация pgAdmin
+PGADMIN_DEFAULT_EMAIL=smth@smth.com
+PGADMIN_DEFAULT_PASSWORD=smth
+```
 
-COPY FROM — массовый импорт данных из CSV.
+### 2.2 Создание `docker-compose.yml`
 
-4. MinIO
-
-Объектное хранилище, совместимое с Amazon S3.
-
-Используемые библиотеки:
-
-boto3 — загрузка и скачивание файлов из MinIO.
-
-5. PgAdmin
-
-UI-инструмент для работы с PostgreSQL.
-
-6. Python-скрипты
-
-boto3 — работа с MinIO.
-
-psycopg2 — взаимодействие с PostgreSQL.
-
-dotenv — управление переменными окружения.
-
-7. Управление переменными окружения
-
-Использование .env для хранения конфиденциальных данных и избежания хардкодинга.
-
-8. Git и файлы исключений
-
-.gitignore — предотвращает попадание в репозиторий ненужных файлов (venv, логи).
-
-.dockerignore — оптимизирует сборку Docker-образов.
-
-Этапы выполнения задания
-
-1. Настройка файлов окружения
-
-Создаем файл .env в корневой директории проекта и добавляем переменные:
-
-# PostgreSQL
-DB_HOST=postgres
-DB_PORT=5432
-DB_USER=your_db_user
-DB_PASS=your_db_password
-DB_NAME=your_db_name
-
-# MinIO
-S3_ENDPOINT_URL=http://localhost:9000
-S3_ACCESS_KEY=your_access_key
-S3_SECRET_KEY=your_secret_key
-S3_BUCKET_NAME=your_bucket_name
-
-# pgAdmin (если требуется)
-PGADMIN_DEFAULT_EMAIL=your_email@example.com
-PGADMIN_DEFAULT_PASSWORD=your_pgadmin_password
-
-2. Создание docker-compose.yml
-
-Определяем конфигурацию сервисов, используя .env файл:
-
+```yaml
 version: '3.8'
+
 services:
   postgres:
-    image: postgres:16
-    restart: always
+    image: postgres:13
+    container_name: postgres
     env_file:
-      - .env
-    ports:
-      - "5433:5432"
+      - .env-non-dev
     volumes:
       - ./pgdata:/var/lib/postgresql/data
+      - ./init.sql:/docker-entrypoint-initdb.d/init.sql
+    ports:
+      - "5432:5432"
 
-Запуск сервисов:
+  minio:
+    image: minio/minio
+    container_name: minio
+    env_file:
+      - .env-non-dev}
+    command: server /data --console-address ":9001"
+    volumes:
+      - ./s3data:/data
+    ports:
+      - "9000:9000"
+      - "9001:9001"
 
-docker-compose up -d
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    env_file:
+      - .env-non-dev}
+    ports:
+      - "8080:80"
+```
 
-Проверка работающих контейнеров:
+---
 
-docker ps
+## 3. Настройка PostgreSQL
 
-3. Изменение конфигурации pg_hba.conf для удобного подключения
+### 3.1 Изменение `pg_hba.conf` для удобного подключения
 
-Для подключения к PostgreSQL в контейнере обновляем pg_hba.conf:
+Войти в контейнер PostgreSQL:
+```bash
+docker exec -it postgres bash
+```
 
-docker exec -it postgres_db bash
+Открыть файл конфигурации:
+```bash
 vi /var/lib/postgresql/data/pg_hba.conf
+```
 
-Изменяем:
-
+Изменить настройки доступа:
+```plaintext
 host    all             all             0.0.0.0/0               trust
+```
 
-Перезапускаем контейнер:
+Перезапустить контейнер:
+```bash
+docker restart postgres
+```
 
-docker restart postgres_db
+---
 
-4. Создание скриптов для автоматизации
-Скрипт для загрузки данных в Postgres load_postgres.py
-Скрипт для загрузки данных в Minio upload_s3.py
+## 4. Автоматизация работы с базой данных
+
+### 4.1 Скрипт для загрузки CSV-файла в PostgreSQL
+load_postgres.py
+
+### 4.2 Скрипт для загрузки файлов в MinIO
+upload_s3.py
+
+## 5. Запуск и тестирование
+
+### 5.1 Запуск сервисов Docker Compose
+```bash
+docker-compose up -d
+```
+
+### 5.2 Проверка работающих контейнеров
+```bash
+docker ps
+```
+![alt text](image.png)
+
+### 5.3 Подключение к PostgreSQL через pgAdmin
+
+1. Открыть `http://localhost:8080`
+2. Ввести учетные данные `admin@example.com / admin`
+3. Добавить сервер PostgreSQL, используя `postgres` в качестве хоста
+
+### 5.4 Проверка загрузки данных
+
+```bash
+psql -U admin -d mydatabase -h localhost -c "SELECT * FROM my_table;"
+
+```
+
+### 5.5 Проверка файлов в MinIO
+
+1. Открыть `http://localhost:9001`
+2. Войти с логином `minioadmin` и паролем `minioadmin`
+3. Перейти в `my-bucket` и проверить наличие `backup.sql`
+![alt text](image-1.png)
+---
+
+## Итог
+- Развернута среда с PostgreSQL, MinIO и pgAdmin
+- Настроены скрипты для загрузки данных в базу и хранилище
+- Проверена работа автоматизированных процессов
+
+Проект успешно выполнен!
+
