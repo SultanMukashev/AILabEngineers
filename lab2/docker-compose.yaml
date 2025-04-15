@@ -1,0 +1,89 @@
+services:
+  postgres:
+    image: postgres:16
+    container_name: postgres_db
+    restart: always
+    env_file:
+      - .env-non-dev
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-postgres_beket}
+      POSTGRES_USER: ${POSTGRES_USER:-beket}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-beket}
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      app-network:
+        aliases:
+          - postgres_db
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U beket -d postgres_beket"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    restart: always
+    env_file:
+      - .env-non-dev
+    environment:
+      PGADMIN_DEFAULT_EMAIL: ${PGADMIN_DEFAULT_EMAIL:-beket@beket.com}
+      PGADMIN_DEFAULT_PASSWORD: ${PGADMIN_DEFAULT_PASSWORD:-beket}
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "5080:80"
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      app-network:
+        aliases:
+          - pgadmin
+
+  app:
+    build:
+      context: .
+      dockerfile: ./Dockerfile
+    container_name: python_app
+    environment:
+      POSTGRES_DB: postgres_beket
+      POSTGRES_USER: beket
+      POSTGRES_PASSWORD: beket
+      POSTGRES_HOST: postgres_db
+      POSTGRES_PORT: 5432
+    volumes:
+      - .:/app
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - app-network
+
+  minio:
+    image: minio/minio
+    container_name: minio_storage
+    command: server --console-address ":9001" /data
+    env_file:
+      - .env-non-dev
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    volumes:
+      - ./s3data:/data
+    networks:
+      app-network:
+        aliases:
+          - minio
+
+networks:
+  app-network:
+    driver: bridge
+
+volumes:
+  postgres_data:
+  pgadmin_data:
