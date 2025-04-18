@@ -108,7 +108,7 @@ async def main():
 
     script_dir = os.path.dirname(os.path.abspath(__file__))
     source_dir_abs = os.path.join(script_dir, 'data')
-    files_to_upload = ['kolesa_almaty_cleaned.csv']
+    files_to_upload = ['kolesa_almaty_raw.csv']
 
     upload_tasks = []
     valid_files_to_upload = []
