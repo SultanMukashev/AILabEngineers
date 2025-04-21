@@ -19,7 +19,7 @@ services:
     container_name: minio
     environment:
       MINIO_ACCESS_KEY: minioaccesskey
-      MINIO_SECRET_KEY: miniosecretkey
+      MINIO_SECRET_KEY: minioaccesskey
     volumes:
       - ./s3data:/data
     ports:
