@@ -78,19 +78,25 @@ def prepare_data(df: pd.DataFrame, target_col: str):
 # train/test split
 
 def split_data(X, y):
-    train_size = float(os.getenv('TRAIN_SIZE', 0.8))
-    if not 0 < train_size < 1:
-        raise ValueError('TRAIN_SIZE must be between 0 and 1')
-    X_train, X_test, y_train, y_test = train_test_split(X, y, train_size=train_size, random_state=42)
-    return X_train, X_test, y_train, y_test
+    train_size = float(os.getenv('TRAIN_SIZE', 0.7))
+    valid_size = float(os.getenv('VALID_SIZE', 0.1))
+    if train_size + valid_size >= 1.0:
+        raise ValueError('TRAIN_SIZE + VALID_SIZE must be < 1.0')
+
+    X_train, X_temp, y_train, y_temp = train_test_split(X, y, train_size=train_size, random_state=42)
+    valid_relative_size = valid_size / (1.0 - train_size)
+    X_valid, X_test, y_valid, y_test = train_test_split(X_temp, y_temp, train_size=valid_relative_size, random_state=42)
+    return X_train, X_valid, X_test, y_train, y_valid, y_test
 
 # Save artifacts
 
-def save_artifacts(preproc, X_train, X_test, y_train, y_test, out_dir: str):
+def save_artifacts(preproc, X_train, X_valid, X_test, y_train, y_valid, y_test, out_dir: str):
     os.makedirs(out_dir, exist_ok=True)
     X_train.to_csv(os.path.join(out_dir, 'X_train.csv'), index=False)
+    X_valid.to_csv(os.path.join(out_dir, 'X_valid.csv'), index=False)
     X_test.to_csv(os.path.join(out_dir, 'X_test.csv'), index=False)
     y_train.to_frame().to_csv(os.path.join(out_dir, 'y_train.csv'), index=False)
+    y_valid.to_frame().to_csv(os.path.join(out_dir, 'y_valid.csv'), index=False)
     y_test.to_frame().to_csv(os.path.join(out_dir, 'y_test.csv'), index=False)
     joblib.dump(preproc, os.path.join(out_dir, 'preprocessor.joblib'))
  
@@ -105,6 +111,6 @@ if __name__ == '__main__':
     print(f"[Transform] Load {RAW_DATA_PATH}")
     df = preprocess_data(engineer_features(load_data(RAW_DATA_PATH)))
     X, y, preproc = prepare_data(df, TARGET_COL)
-    X_train, X_test, y_train, y_test = split_data(X, y)
-    save_artifacts(preproc, X_train, X_test, y_train, y_test, OUTPUT_DIR)
+    X_train, X_valid, X_test, y_train, y_valid, y_test = split_data(X, y)
+    save_artifacts(preproc, X_train, X_valid, X_test, y_train, y_valid, y_test, OUTPUT_DIR)
     print(f"[Transform] Done. Artifacts in {OUTPUT_DIR}")
