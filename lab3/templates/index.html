@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <title>Оценка стоимости автомобиля</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+</head>
+<body class="bg-light">
+
+<div class="container py-5">
+  <h2 class="text-center mb-4">Оценка стоимости автомобиля</h2>
+  <form method="post" action="/predict_form" class="card shadow p-4">
+
+    <div class="mb-3">
+      <label for="brand" class="form-label">Марка автомобиля</label>
+      <input type="text" class="form-control" id="brand" name="brand" placeholder="Toyota" required>
+      <div class="form-text">Например: Toyota, BMW, Hyundai</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="car_model" class="form-label">Модель автомобиля</label>
+      <input type="text" class="form-control" id="car_model" name="car_model" placeholder="Camry" required>
+      <div class="form-text">Например: Camry, 3 Series, Elantra</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="year" class="form-label">Год выпуска</label>
+      <input type="number" class="form-control" id="year" name="year" placeholder="2018" required>
+      <div class="form-text">Введите год выпуска.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="mileage" class="form-label">Пробег (км)</label>
+      <input type="number" class="form-control" id="mileage" name="mileage" placeholder="45000" required>
+      <div class="form-text">Пробег в километрах.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="city" class="form-label">Город</label>
+      <input type="text" class="form-control" id="city" name="city" placeholder="Алматы" required>
+      <div class="form-text">Город продажи автомобиля.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="engine_volume_liters" class="form-label">Объём двигателя (л)</label>
+      <input type="number" step="0.1" class="form-control" id="engine_volume_liters" name="engine_volume_liters" placeholder="2.0" required>
+      <div class="form-text">Например: 1.6, 2.0, 3.5</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="body_style" class="form-label">Тип кузова</label>
+      <input type="text" class="form-control" id="body_style" name="body_style" placeholder="седан" required>
+      <div class="form-text">Тип кузова: седан, внедорожник, хэтчбек и т.д.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="color" class="form-label">Цвет</label>
+      <input type="text" class="form-control" id="color" name="color" placeholder="белый" required>
+      <div class="form-text">Основной цвет автомобиля.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="transmission" class="form-label">Коробка передач</label>
+      <input type="text" class="form-control" id="transmission" name="transmission" placeholder="автомат" required>
+      <div class="form-text">Например: автомат, механика, робот.</div>
+    </div>
+
+    <div class="mb-3">
+      <label for="drive_type" class="form-label">Тип привода</label>
+      <input type="text" class="form-control" id="drive_type" name="drive_type" placeholder="передний" required>
+      <div class="form-text">Передний, задний или полный привод.</div>
+    </div>
+
+    <button type="submit" class="btn btn-primary w-100">Рассчитать стоимость</button>
+  </form>
+</div>
+
+</body>
+</html>
