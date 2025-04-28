@@ -12,9 +12,13 @@ import joblib
 def load_data(input_path: str) -> pd.DataFrame:
     df = pd.read_csv(input_path)
     df = df.drop(columns=['url', 'parsed_at'], errors='ignore')
-    if 'brand' in df.columns and 'model' not in df.columns:
-        df[['brand', 'model']] = df['brand'].str.split(' ', n=1, expand=True)
-    df['model'] = df['model'].fillna('unknown_model') if 'model' in df.columns else df
+
+    if 'brand' in df.columns:
+        split = df['brand'].str.split(' ', n=1, expand=True)
+        df['brand'] = split[0]
+        df['model'] = split[1] 
+
+    df['model'] = df['model'].fillna('unknown_model')
     return df
 
 # create age
