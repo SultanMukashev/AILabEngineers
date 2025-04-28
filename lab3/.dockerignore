@@ -1,0 +1,16 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.db
+*.sqlite3
+*.joblib
+*.zip
+*.tar
+.DS_Store
+.idea/
+.vscode/
+lab1/
+lab2/
+data/
+venv/
