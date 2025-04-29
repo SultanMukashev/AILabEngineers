@@ -55,7 +55,7 @@ FastAPI-приложение для оценки стоимости автомо
 ##  Собрать и запустить контейнер
 
 ```bash
-docker build -t car-price-api .
+docker build -t thr33hartz/car-price-api .
 docker run --rm -p 8000:8000 car-price-api
 ```
 
