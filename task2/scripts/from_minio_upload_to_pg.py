@@ -46,9 +46,18 @@ def load_csv_to_db(csv_file_path, table_name):
     cursor = conn.cursor()
 
     with open(csv_file_path, "r", encoding="utf-8") as file:
-        copy_sql = sql.SQL("COPY {} FROM STDIN WITH CSV HEADER DELIMITER ','").format(
-            sql.Identifier(table_name)
+        columns = (
+            "price", "area", "flat_toilets", "balcony",
+            "current_floors", "total_floors", "ceiling",
+            "dorm", "mortgage", "year", "type_of_house",
+            "repair_status", "distance_to_center"
         )
+
+        copy_sql = sql.SQL("COPY {} ({}) FROM STDIN WITH CSV HEADER DELIMITER ','").format(
+            sql.Identifier(table_name),
+            sql.SQL(", ").join(map(sql.Identifier, columns))
+        )
+
         cursor.copy_expert(copy_sql.as_string(conn), file)
 
     conn.commit()

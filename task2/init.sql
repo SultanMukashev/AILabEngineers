@@ -1,11 +1,11 @@
-CREATE TABLE IF NOT EXISTS apartment (
+CREATE TABLE IF NOT EXISTS apartments (
     id SERIAL PRIMARY KEY,
     price NUMERIC(14,2) NOT NULL,
     area FLOAT,
     flat_toilets VARCHAR(50),
     balcony VARCHAR(50),
-    current_floors INTEGER,
-    total_floors INTEGER,
+    current_floors FLOAT,
+    total_floors FLOAT,
     ceiling FLOAT,
     dorm VARCHAR(10),
     mortgage VARCHAR(10),
