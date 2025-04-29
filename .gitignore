@@ -1,0 +1,20 @@
+# Ignore Python cache
+__pycache__/
+
+# Ignore .env files (с чувствительными данными)
+.env
+**/.env
+
+
+# Ignore Docker volumes / database folders
+pgdata/
+**/pgdata/
+s3data/
+**/s3data/
+
+# Ignore CSVs if не хочешь их коммитить
+*.csv
+
+# Ignore MinIO system files
+**/.minio.sys/
+
