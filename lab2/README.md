@@ -1,41 +1,110 @@
-## Exercise #5 - Data Modeling for Postgres + Python.
+# Lab 2 – S3 → Postgres ETL with Docker
 
-In this fifth exercise you will work on a few different topics,
-data modeling, Python, and Postgres. These are common problems worked 
-on in data engineering.
+## 💡 Task overview
+1. **Exercise 5 (SQL)** – write **`creatingtables.sql`** that creates all required tables in PostgreSQL (e.g. `products`, `accounts`, `transactions`, …).
+2. Place the CSV files you produced in **Task 5** into the project’s **`data/`** folder.
+3. Spin up the stack with Docker Compose:
 
-#### Setup
-1. Change directories at the command line 
-   to be inside the `Exercise-5` folder `cd Exercises/Exercise-5`
-   
-2. Run `docker build --tag=exercise-5 .` to build the `Docker` image.
+   * **MinIO** – S3‑compatible object storage  
+   * **PostgreSQL** – relational database  
+   * **pipeline** – one‑shot container that  
+     1. uploads the CSVs to MinIO,  
+     2. downloads them back,  
+     3. loads them into the tables created by `creatingtables.sql`.
 
-3. There is a file called `main.py` in the `Exercise-5` directory, this
-is where you `Python` code to complete the exercise should go.
-   
-4. Once you have finished the project or want to test run your code,
-   run the following command `docker-compose up run` from inside the `Exercises/Exercise-5` directory
+```bash
+# first run – build images, create DB schema, run ETL
+docker compose up --build
+```
 
-#### Problems Statement
-There is a folder called `data` in this current directory, `Exercises/Exercise-5`. There are also
-3 `csv` files located in that folder. Open each one and examine it, the 
-first task is to create a `sql` script with the `DDL` to hold
-a `CREATE` statement for each data file. Remember to think about data types. 
-Also, this `CREATE` statements should include indexes for each table, as well
-as primary and foreign keys.
+Postgres & MinIO keep running.  
+When you update the CSVs, re‑run only the ETL:
 
-After you have finished this `sql` scripts, we must connect to `Postgres` using the `Python` package
-called `psycopg2`. Once connected we will run our `sql` scripts against the database.
+```bash
+docker compose up -d pipeline
+```
 
-Note: The default `main.py` script already has the Python connection configured to connect
-to the `Postgres` instance that is automatically spun up by `Docker` when you ran
-the `docker-compose up run` command (inside `Exercises/Exercise-5` directory).
+---
 
-Finally, we will use `psycopg2` to insert the data in each `csv` file into the table you created.
+## 🗄️ Project layout
 
-Generally, your script should do the following ...
-1. Examine each `csv` file in `data` folder. Design a `CREATE` statement for each file.
-2. Ensure you have indexes, primary and forgein keys.
-3. Use `psycopg2` to connect to `Postgres` on `localhost` and the default `port`.
-4. Create the tables against the database.
-5. Ingest the `csv` files into the tables you created, also using `psycopg2`.
+```
+lab2/
+├─ data/                    # <- your *.csv go here
+│   ├─ products.csv
+│   ├─ accounts.csv
+│   └─ transactions.csv
+│
+├─ creatingtables.sql       # <- Task 5 DDL
+│
+├─ Dockerfile               # builds the pipeline image
+├─ docker-compose.yml       # services: minio, postgres, pipeline
+├─ .env                     # secrets & tweak‑able settings
+│
+├─ wait-for-it.sh           # tiny “wait host:port” helper
+├─ upload_data.py           # 1️⃣ upload CSVs → MinIO
+└─ load_to_postgres.py      # 2️⃣ download CSVs → Postgres
+```
+
+---
+
+## ⚙️ Configuration (`.env`)
+
+```dotenv
+# ---------- MinIO ----------
+MINIO_ROOT_USER=minioadmin
+MINIO_ROOT_PASSWORD=minioadmin
+S3_ENDPOINT=http://minio:9000
+BUCKET=demo-bucket
+
+# ---------- PostgreSQL ----------
+POSTGRES_USER=demo
+POSTGRES_PASSWORD=demo
+POSTGRES_DB=demo
+
+# ---------- CSV list (order matters!) ----------
+CSV_FILES=products.csv,accounts.csv,transactions.csv
+```
+
+Docker Compose reads `.env` automatically.
+
+---
+
+## 🚀 Lifecycle
+
+| Stage | Action |
+|-------|--------|
+| **Boot** | `docker compose up --build` starts MinIO & Postgres, waits until healthy, then launches **pipeline**. |
+| **Schema** | On the very first run Postgres executes `creatingtables.sql` (mounted into `/docker-entrypoint-initdb.d`). |
+| **Upload** | `upload_data.py` loops over `CSV_FILES` and puts each file into MinIO. |
+| **Load** | `load_to_postgres.py` downloads each object, truncates (parents with `CASCADE`), then streams data into Postgres with `COPY`. |
+| **Done** | `pipeline` exits; DB & MinIO keep running. |
+
+---
+
+## 🛠️ psql cheatsheet
+
+```bash
+docker compose exec postgres psql -U $POSTGRES_USER -d $POSTGRES_DB
+```
+
+| Command | Description |
+|---------|-------------|
+| `\dt` | list tables |
+| `\d tablename` | describe table |
+| `SELECT * FROM tablename LIMIT 10;` | peek at data |
+| `\q` | quit |
+
+---
+
+## 🧩 Extend
+
+* Add a new CSV/table:  
+  1. Add DDL to `creatingtables.sql`.  
+  2. Drop CSV into `data/`.  
+  3. Append file name to `CSV_FILES` in `.env`.  
+  4. Run `docker compose up -d pipeline`.
+
+* For production‑grade migrations consider Alembic or Flyway.
+
+Enjoy your Docker‑powered S3 → Postgres workflow!
