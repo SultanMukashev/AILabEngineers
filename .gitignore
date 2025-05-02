@@ -14,7 +14,8 @@ s3data/
 
 # Ignore CSVs if не хочешь их коммитить
 *.csv
-
+links.txt
+links_krisha.txt
 # Ignore MinIO system files
 **/.minio.sys/
 
