@@ -1,0 +1,34 @@
+services:
+  app:
+    build:
+      context: ..
+      dockerfile: docker/Dockerfile
+    volumes:
+      - ..:/code
+      - ../model:/code/model        # ✅ модельдер сақталатын папка
+      - ../raw:/code/raw            # ✅ .csv файл сақталатын папка
+    ports:
+      - "8000:8000"
+    command: uvicorn app.app:app --host 0.0.0.0 --reload
+    depends_on:
+      - db
+    environment:
+      - PYTHONPATH=/code
+      - DATABASE_URL=postgresql://yersultan:yereker2727@db:5432/mydb
+
+
+
+  db:
+    image: postgres:14
+    restart: always
+    environment:
+      POSTGRES_USER: yersultan
+      POSTGRES_PASSWORD: yereker2727
+      POSTGRES_DB: mydb
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+
+volumes:
+  postgres_data:
+
+
