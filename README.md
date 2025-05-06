@@ -12,6 +12,6 @@ Followed tutorial: [Kaggle Titanic Tutorial](https://www.kaggle.com/code/sashr07
 ## Installation
 
 1. Clone the repository:
-   git clone https://github.com/SultanMukashev/AILabEngineers/edit/fibukki-lab3
+   git clone 
    ./run.sh
    That's all!
