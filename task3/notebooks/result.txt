@@ -1,0 +1,51 @@
+Balcony: Не нужен, дропаем, importance с обрабо
+
+Обработка ошибок при парсинга и записи этих ошибок с csv:
+for i in df['text']:
+    if i in ['Не удается получить доступ к сайту', 'Страница не найдена']:
+        df.drop(df[df['text'] == i].index, inplace=True)
+    
+df = df.reset_index(drop=True)
+
+Обработка колонки text и извлекание чисел комнат с него:
+def extract_rooms(text):
+    match = re.search(r'(\d+)-комнатная', str(text))
+    return int(match.group(1)) if match else None
+def[rooms] = df[text].apply(extract_rooms)
+
+Обработка колонки location и деоение его на street и district:
+def clean_location(text):
+    """Удаляет '\nпоказать на карте' и делит на город + район"""
+    if pd.isna(text):
+        return pd.Series([None, None])
+    
+    # Удаляем \n и всё после него
+    cleaned = str(text).split('\n')[0]
+    
+    # Делим по запятой
+    parts = cleaned.split(',')
+
+    city = parts[0].strip() if len(parts) > 0 else None
+    district = parts[1].strip() if len(parts) > 1 else None
+
+    return pd.Series([city, district])
+
+df[['city', 'district']] = df['location'].apply(clean_location)
+
+# Чистим лишнее: \n, "показать на карте", лишние пробелы (вдруг остались)
+df['city'] = df['city'].str.replace(r'показать.*', '', regex=True).str.strip()
+df['district'] = df['district'].str.replace(r'показать.*', '', regex=True).str.strip()
+
+# Удаляем колонку location
+df.drop(columns='location', inplace=True)
+
+
+Очистка колонки area от всего и преобразование к float
+def clean_area_column(df):
+    def extract_total_area(text):
+        match = re.search(r'[\d.]+', str(text))
+        return float(match.group()) if match else None
+
+    df['area'] = df['area'].apply(extract_total_area)
+    return df 
+df = clean_area_column(df)
