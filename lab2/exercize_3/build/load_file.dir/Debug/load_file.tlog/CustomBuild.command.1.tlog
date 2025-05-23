@@ -1,0 +1,10 @@
+^C:\DEV\AILAB\AILABENGINEERS\LAB2\CPP_SCRIPTS\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Dev/AILab/AILabEngineers/lab2/cpp_scripts -BC:/Dev/AILab/AILabEngineers/lab2/cpp_scripts/build --check-stamp-file C:/Dev/AILab/AILabEngineers/lab2/cpp_scripts/build/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

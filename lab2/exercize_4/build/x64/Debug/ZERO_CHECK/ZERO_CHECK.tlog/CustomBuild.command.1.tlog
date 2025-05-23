@@ -1,0 +1,10 @@
+^C:\DEV\AILAB\AILABENGINEERS\LAB2\EXERCIZE_4\BUILD\CMAKEFILES\37C7A46A72DA7EB5D284639309D1D037\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Dev/AILab/AILabEngineers/lab2/exercize_4 -BC:/Dev/AILab/AILabEngineers/lab2/exercize_4/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Dev/AILab/AILabEngineers/lab2/exercize_4/build/json_to_csv.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -46,6 +46,7 @@ int main() {
                 std::cout << "Bucket already exists." << std::endl;
             } else {
                 std::cerr << "Failed to create bucket: " << err.GetMessage() << std::endl;
+                return 1;
             }
         }
 
