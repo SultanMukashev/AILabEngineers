@@ -1,0 +1,21 @@
+# Some configs
+.vscode
+
+# CMake build files
+CMakeFiles/
+CMakeCache.txt
+cmake_install.cmake
+Makefile
+
+# Compiled binaries (common patterns)
+*.o
+*.obj
+*.so
+*.dll
+*.exe
+
+# Large files
+*.zip
+
+# Personal data
+kaggle.json
