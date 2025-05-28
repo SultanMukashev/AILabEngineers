@@ -44,6 +44,7 @@ std::string kaggleFileNamer(const std::string& url);
 std::vector<std::string> fetchDatasetUrls(const std::string& path_to_datasets);
 
 int main() {
+    file_sys::create_directories("../data_raw");
     // Path to kaggle download credentials
     std::string kaggle_config_path = "kaggle.json";
 
