@@ -1,0 +1,16 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Dev\AILab\AILabEngineers\lab3\backend\data_extraction\data_extraction.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Dev\AILab\AILabEngineers\lab3\backend\data_extraction\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{BC369CAA-DA4B-360A-A2A5-3A5E91C1EBE1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>
