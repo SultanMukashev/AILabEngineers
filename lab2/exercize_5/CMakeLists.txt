@@ -4,6 +4,7 @@ project(exercize_5)
 set(CMAKE_CXX_STANDARD 20)
 
 find_package(libpqxx REQUIRED)
+include_directories("C:/Dev/dependencies_cpp/csv-parser/single_include")
 
 add_executable(process_csv
     process_csv.cpp

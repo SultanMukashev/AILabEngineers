@@ -14,23 +14,17 @@
 #include <set>
 
 #include "../sql_datatype/SqlType.h"
+#include "../sql_datatype/Helper/Helper.h"
 
 class Sql_table {
 private:
     std::string name;
-    std::vector<SqlType::SqlDataType> col_datatypes;
+    std::vector<SqlType::SqlType> col_datatypes;
 
     std::vector<std::string> headers;
     std::vector<std::vector<std::string>> values;
 
-    SqlType::SqlDataType processDataType(const std::string& val, size_t& max_len);
-    int dataTypePriority(const SqlType::SqlDataType& type);
-
-    bool isBoolean(const std::string& val);
-    SqlType::SqlDataType toDateTime(const std::string& val);
-    SqlType::SqlDataType toNumeric(const std::string& val);
-
-    std::string correctToType(const std::string& val, const SqlType::SqlDataType& type);
+    Sql_Utils sqlu;
 public:
     Sql_table(const std::string& name,
         const std::vector<std::string>& headers,
