@@ -80,6 +80,10 @@ Task 5 starts with function **findAllCsvs** finding all paths to csv files, then
 
 These are defined to work with Sql datatypes and later using those types to determine what will be used for the database, ***BUT*** those have no types for BLOB objects or binary files
 
+#### Helper.h and Helper.cpp
+
+New class defined to remove all of the utils from Sql_Table class and refactor the structure for much easier work and understanding. Also offering new logic of merging types as in class merge
+
 #### SqlTable.h and SqlTable.cpp
 
 Those are used to work with tables, currently have commands InitTable and InsertData, to create and put data in the tables of our database
